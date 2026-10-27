@@ -1,16 +1,25 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Controle</title>
-</head>
-<body>
-    <h1>Sistema de Controle de Funcionários</h1>
-    <ul>
-        <li><a href="formulario-inserir.php">Cadastro de Funcionários</a></li>
-        <li><a href="formulario-consultar.php">Consultar Funcionários</a></li>
-    </ul>
-    
-</body>
-</html>
+<?php
+require_once __DIR__ . "/controller/funcionarioController.php";
+
+// Roteador Front-Controller
+$acao = $_GET["acao"] ?? "home";
+
+switch ($acao) {
+    case "cadastrar":
+        controller_cadastrar();
+        break;
+
+    case "consultar":
+    case "buscar":
+        controller_consultar();
+        break;
+
+    case "excluir":
+        controller_excluir();
+        break;
+
+    case "home":
+    default:
+        controller_home();
+        break;
+}
