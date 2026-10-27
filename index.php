@@ -10,10 +10,10 @@ switch ($acao) {
         break;
 
     case "consultar":
-    case "buscar":
         controller_consultar();
         break;
 
+    case "index":
     case "home":
     default:
         controller_home();

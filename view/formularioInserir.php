@@ -1,3 +1,6 @@
+<?php
+$rota_index = (basename(dirname($_SERVER['PHP_SELF'] ?? '')) === 'view') ? '../index.php' : 'index.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,7 +16,7 @@
     <!-- Barra de Navegação -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.php?acao=home">
+            <a class="navbar-brand fw-bold" href="<?= $rota_index ?>">
                 <i class="bi bi-people-fill me-2"></i>Gestão de Funcionários
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
@@ -22,13 +25,13 @@
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?acao=home"><i class="bi bi-house-door me-1"></i>Início</a>
+                        <a class="nav-link" href="<?= $rota_index ?>"><i class="bi bi-house-door me-1"></i>Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php?acao=cadastrar"><i class="bi bi-person-plus me-1"></i>Cadastrar</a>
+                        <a class="nav-link active" href="<?= $rota_index ?>?acao=cadastrar"><i class="bi bi-person-plus me-1"></i>Cadastrar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?acao=consultar"><i class="bi bi-search me-1"></i>Consultar</a>
+                        <a class="nav-link" href="<?= $rota_index ?>?acao=consultar"><i class="bi bi-search me-1"></i>Consultar</a>
                     </li>
                 </ul>
             </div>
@@ -47,7 +50,7 @@
                         </h5>
                     </div>
                     <div class="card-body p-4">
-                        <form action="index.php?acao=cadastrar" method="POST">
+                        <form action="<?= $rota_index ?>?acao=cadastrar" method="POST">
                             <div class="mb-3">
                                 <label for="nome" class="form-label fw-medium">Nome Completo</label>
                                 <div class="input-group">

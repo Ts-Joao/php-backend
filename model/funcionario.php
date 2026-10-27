@@ -3,6 +3,9 @@ require_once __DIR__ . "/../config/database.php";
 
 function inserir_funcionario($nome, $setor, $salario) {
     global $conexao;
+    if (!$conexao) {
+        return false;
+    }
     $sql = "INSERT INTO funcionarios (nome, setor, salario) VALUES ('$nome', '$setor', $salario)";
     $resultado = mysqli_query($conexao, $sql);
     
@@ -14,6 +17,9 @@ function inserir_funcionario($nome, $setor, $salario) {
 
 function buscar_funcionario($nome = '') {
     global $conexao;
+    if (!$conexao) {
+        return [];
+    }
     $sql = "SELECT * FROM funcionarios WHERE nome LIKE '%$nome%' ORDER BY id DESC";
     $resultado = mysqli_query($conexao, $sql);
     $funcionarios = [];

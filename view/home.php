@@ -1,3 +1,6 @@
+<?php
+$rota_index = (basename(dirname($_SERVER['PHP_SELF'] ?? '')) === 'view') ? '../index.php' : 'index.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -13,7 +16,7 @@
     <!-- Barra de Navegação -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.php?acao=home">
+            <a class="navbar-brand fw-bold" href="<?= $rota_index ?>">
                 <i class="bi bi-people-fill me-2"></i>Gestão de Funcionários
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
@@ -22,13 +25,13 @@
             <div class="collapse navbar-collapse" id="navMenu">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.php?acao=home"><i class="bi bi-house-door me-1"></i>Início</a>
+                        <a class="nav-link active" href="<?= $rota_index ?>"><i class="bi bi-house-door me-1"></i>Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?acao=cadastrar"><i class="bi bi-person-plus me-1"></i>Cadastrar</a>
+                        <a class="nav-link" href="<?= $rota_index ?>?acao=cadastrar"><i class="bi bi-person-plus me-1"></i>Cadastrar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?acao=consultar"><i class="bi bi-search me-1"></i>Consultar</a>
+                        <a class="nav-link" href="<?= $rota_index ?>?acao=consultar"><i class="bi bi-search me-1"></i>Consultar</a>
                     </li>
                 </ul>
             </div>
@@ -55,7 +58,7 @@
                             <p class="card-text text-muted">Adicione novos membros à equipe informando nome, setor e remuneração.</p>
                         </div>
                         <div class="mt-4">
-                            <a href="index.php?acao=cadastrar" class="btn btn-primary w-100 py-2">
+                            <a href="<?= $rota_index ?>?acao=cadastrar" class="btn btn-primary w-100 py-2">
                                 <i class="bi bi-plus-circle me-1"></i> Ir para Cadastro
                             </a>
                         </div>
@@ -75,7 +78,7 @@
                             <p class="card-text text-muted">Pesquise por nome, filtre registros e visualize todos os funcionários cadastrados.</p>
                         </div>
                         <div class="mt-4">
-                            <a href="index.php?acao=consultar" class="btn btn-success w-100 py-2">
+                            <a href="<?= $rota_index ?>?acao=consultar" class="btn btn-success w-100 py-2">
                                 <i class="bi bi-search me-1"></i> Consultar Lista
                             </a>
                         </div>
@@ -95,4 +98,4 @@
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-</html>
+</html>

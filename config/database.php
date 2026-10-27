@@ -4,10 +4,11 @@ $user = 'root';
 $password = '';
 $db = 'crud';
 
-$conexao = mysqli_connect($server, $user, $password, $db);
-
-if (!$conexao) {
-    die("Falha na conexão com o banco de dados: " . mysqli_connect_error());
+if (function_exists('mysqli_connect')) {
+    $conexao = @mysqli_connect($server, $user, $password, $db);
+    if ($conexao) {
+        mysqli_set_charset($conexao, "utf8mb4");
+    }
+} else {
+    $conexao = false;
 }
-
-mysqli_set_charset($conexao, "utf8mb4");
