@@ -40,28 +40,6 @@
         <div class="row justify-content-center">
             <div class="col-md-7 col-lg-5">
 
-                <!-- Alertas de Sucesso / Erro -->
-                <?php if (!empty($mensagem_sucesso)): ?>
-                    <div class="alert alert-success alert-dismissible fade show shadow-sm" role="alert">
-                        <i class="bi bi-check-circle-fill me-2"></i>
-                        <?= htmlspecialchars($mensagem_sucesso) ?>
-                        <div class="mt-2">
-                            <a href="index.php?acao=consultar" class="alert-link small">
-                                <i class="bi bi-arrow-right-circle me-1"></i>Ver lista de funcionários
-                            </a>
-                        </div>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-                    </div>
-                <?php endif; ?>
-
-                <?php if (!empty($mensagem_erro)): ?>
-                    <div class="alert alert-danger alert-dismissible fade show shadow-sm" role="alert">
-                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
-                        <?= htmlspecialchars($mensagem_erro) ?>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Fechar"></button>
-                    </div>
-                <?php endif; ?>
-
                 <div class="card shadow-sm border-0">
                     <div class="card-header bg-primary text-white py-3">
                         <h5 class="mb-0 fw-semibold">
@@ -79,7 +57,7 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="setor" class="form-label fw-medium">Setor / Departamento</label>
+                                <label for="setor" class="form-label fw-medium">Setor</label>
                                 <div class="input-group">
                                     <span class="input-group-text"><i class="bi bi-building"></i></span>
                                     <input type="text" class="form-control" id="setor" name="setor" placeholder="Ex: TI, Recursos Humanos, Financeiro" required>
@@ -98,9 +76,6 @@
                                 <button type="submit" class="btn btn-primary py-2 fw-semibold">
                                     <i class="bi bi-check-lg me-1"></i>Salvar Funcionário
                                 </button>
-                                <a href="index.php?acao=consultar" class="btn btn-outline-secondary">
-                                    <i class="bi bi-arrow-left me-1"></i>Ver Lista Cadastrada
-                                </a>
                             </div>
                         </form>
                     </div>

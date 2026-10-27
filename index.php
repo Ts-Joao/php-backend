@@ -14,10 +14,6 @@ switch ($acao) {
         controller_consultar();
         break;
 
-    case "excluir":
-        controller_excluir();
-        break;
-
     case "home":
     default:
         controller_home();
